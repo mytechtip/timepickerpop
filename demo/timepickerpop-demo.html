@@ -14,11 +14,11 @@
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.js"></script>
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.js"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
 
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
@@ -30,7 +30,7 @@
 	angular.module('timepickerDemo', [ 'timepickerPop' ]).controller(
 			'DemoCtrl', function($scope) {
 				$scope.time1 = new Date();
-				$scope.apm = true;
+				$scope.showMeridian = true;
 
 			});
 </script>
@@ -56,7 +56,7 @@
 					<div class='form-group'>
 						<label class='col-sm-3 control-label'>Timepicker</label>
 						<div class='col-sm-9'>
-							<timepicker ng-model="time1" show-meridian='apm'/>
+							<timepicker ng-model="time1" show-meridian='showMeridian'/>
 						</div>
 					</div>
 
@@ -64,15 +64,15 @@
 						<label class='col-sm-3 control-label'>Popup Timepicker</label>
 						<div class='col-sm-4'>
 							<timepicker-pop input-time="time1" class="input-group"
-								show-meridian='apm'> </timepicker-pop>
+								show-meridian='showMeridian'> </timepicker-pop>
 						</div>
 					</div>
 
 					<div class='form-group'>
 						<div class="col-sm-offset-3 col-sm-9">
 							<div class="checkbox">
-								<label> <input type="checkbox" name='apm' ng-model='apm' />
-									Show meridian ({{apm}})
+								<label> <input type="checkbox" name='showMeridian' ng-model='showMeridian' />
+									Show meridian ({{showMeridian}})
 								</label>
 							</div>
 						</div>
