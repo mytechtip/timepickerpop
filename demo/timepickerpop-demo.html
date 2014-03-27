@@ -14,22 +14,25 @@
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 <script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
 <script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.js"></script>
 <script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
 
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script src="../src/timepickerpop.js"></script>
 
 <script type="text/javascript">
 	angular.module('timepickerDemo', [ 'timepickerPop' ]).controller(
 			'DemoCtrl', function($scope) {
 				$scope.time1 = new Date();
+				
+ 				$scope.time2 = new Date();
+				$scope.time2.setHours(7, 30);
 				$scope.showMeridian = true;
 
 			});
@@ -61,6 +64,11 @@
 							<timepicker-pop input-time="time1" class="input-group"
 								show-meridian='showMeridian'> </timepicker-pop>
 						</div>
+						<div class='col-sm-4'>
+							<timepicker-pop input-time="time2" class="input-group"
+								show-meridian='showMeridian'> </timepicker-pop>
+						</div>
+						
 					</div>
 
 					<div class='form-group'>
