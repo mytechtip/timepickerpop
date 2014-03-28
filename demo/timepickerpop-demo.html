@@ -34,6 +34,8 @@
  				$scope.time2 = new Date();
 				$scope.time2.setHours(7, 30);
 				$scope.showMeridian = true;
+				
+				$scope.disabled = false;
 
 			});
 </script>
@@ -61,11 +63,11 @@
 					<div class='form-group'>
 						<label class='col-sm-3 control-label'>Popup Timepicker</label>
 						<div class='col-sm-4'>
-							<timepicker-pop input-time="time1" class="input-group"
+							<timepicker-pop input-time="time1" class="input-group" disabled="disabled"
 								show-meridian='showMeridian'> </timepicker-pop>
 						</div>
 						<div class='col-sm-4'>
-							<timepicker-pop input-time="time2" class="input-group"
+							<timepicker-pop input-time="time2" class="input-group" disabled="disabled"
 								show-meridian='showMeridian'> </timepicker-pop>
 						</div>
 						
@@ -76,6 +78,16 @@
 							<div class="checkbox">
 								<label> <input type="checkbox" name='showMeridian' ng-model='showMeridian' />
 									Show meridian ({{showMeridian}})
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class='form-group'>
+						<div class="col-sm-offset-3 col-sm-9">
+							<div class="checkbox">
+								<label> <input type="checkbox" name='disabled' ng-model='disabled' />
+									Disabled ({{disabled}})
 								</label>
 							</div>
 						</div>

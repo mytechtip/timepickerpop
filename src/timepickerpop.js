@@ -84,10 +84,13 @@ angular.module('timepickerPop', [ 'ui.bootstrap' ])
         transclude : false,
         scope : {
           inputTime : "=",
-          showMeridian : "="
+          showMeridian : "=",
+          disabled : "="
         },
         controller : function($scope, $element) {
           $scope.isOpen = false;
+          
+          $scope.disabledInt = angular.isUndefined($scope.disabled)? false : $scope.disabled;
 
           $scope.toggle = function() {
         	if ($scope.isOpen) {
@@ -113,6 +116,10 @@ angular.module('timepickerPop', [ 'ui.bootstrap' ])
           scope.open = picker.open;
           scope.close = picker.close;
           
+          scope.$watch("disabled", function(value) {
+            scope.disabledInt = angular.isUndefined(scope.disabled)? false : scope.disabled;
+          });
+          
           scope.$watch("inputTime", function(value) {
             if (!scope.inputTime) {
               element.addClass('has-error');
@@ -134,9 +141,9 @@ angular.module('timepickerPop', [ 'ui.bootstrap' ])
           });
 
         },
-        template : "<input type='text' class='form-control' ng-model='inputTime'  time-format show-meridian='showMeridian' ng-focus='open()' />"
+        template : "<input type='text' class='form-control' ng-model='inputTime' ng-disabled='disabledInt' time-format show-meridian='showMeridian' ng-focus='open()' />"
             + "  <div class='input-group-btn' ng-class='{open:isOpen}'> "
-            + "    <button type='button' class='btn btn-default ' ng-class=\"{'btn-primary':isOpen}\" data-toggle='dropdown' ng-click='toggle()'> "
+            + "    <button type='button' ng-disabled='disabledInt' class='btn btn-default ' ng-class=\"{'btn-primary':isOpen}\" data-toggle='dropdown' ng-click='toggle()'> "
             + "        <i class='glyphicon glyphicon-time'></i></button> "
             + "          <div class='dropdown-menu pull-right'> "
             + "            <timepicker ng-model='inputTime' show-meridian='showMeridian'></timepicker> "
